@@ -196,16 +196,19 @@ describe('Redis Article Model', () => {
                 done(err);
             });
         });
-        // it('should be possible to remove group x', function(done) {
-        //     ch01.addRemoveGroups(client, '1', undefined, ['x'], function(err) {
-        //         should.not.exist(err);
-        //         client.smembers('group:x', function(err, result) {
-        //             should.not.exist(err);
-        //             result.length.should.equal(0);
-        //             done();
-        //         });
-        //     });
-        // });
+        it('should be possible to remove group x', function(done) {
+            model.addRemoveGroups('1', undefined, ['x'])
+            .then(() => {
+                return client.smembersAsync('group:x');
+            })
+            .then(result => {
+                result.length.should.equal(0);
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
         // it('should be possible to add group1 and remove group x at the same time', function(done) {
         //     ch01.addRemoveGroups(client, '1', ['group1'], ['x'], function(err) {
         //         should.not.exist(err);
