@@ -50,8 +50,8 @@
       <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="226" selection-end-column="14" />
+            <state relative-caret-position="522">
+              <caret line="220" column="43" lean-forward="false" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -370,12 +370,12 @@
       <workItem from="1491761159605" duration="30000" />
       <workItem from="1491761200367" duration="151000" />
       <workItem from="1491761749268" duration="10000" />
-      <workItem from="1491762139088" duration="19145000" />
+      <workItem from="1491762139088" duration="19362000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19403000" />
+    <option name="totallyTimeSpent" value="19620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2431" height="1499" extended-state="6" />
@@ -458,8 +458,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="211" column="0" lean-forward="false" selection-start-line="211" selection-start-column="0" selection-end-line="226" selection-end-column="14" />
+        <state relative-caret-position="522">
+          <caret line="220" column="43" lean-forward="false" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
           </folding>
