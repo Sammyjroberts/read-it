@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0d8acad-06e3-4096-b444-de2401d2fc8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_api/routes/articles/articles.route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app_api/routes/routes.index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/models/article.redis.model.js" afterPath="$PROJECT_DIR$/app_api/models/article.redis.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/api/article.redis.model.test.js" afterPath="$PROJECT_DIR$/test/api/article.redis.model.test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" afterPath="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -53,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="43" column="53" lean-forward="false" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+            <state relative-caret-position="234">
+              <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
                 <element signature="e#8183#8225#0" expanded="false" />
@@ -69,8 +63,8 @@
       <file leaf-file-name="articles.route.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app_api/routes/articles/articles.route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state relative-caret-position="108">
+              <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
               </folding>
@@ -78,14 +72,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.ctrl.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="article.ctrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="234">
+              <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding>
-                <element signature="n#!!doc;n#ArticleCtrl#0" expanded="false" />
+                <element signature="e#0#38#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ctrl.helpers.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,11 +152,12 @@
       <find>call</find>
       <find>console.lo</find>
       <find>ch01</find>
-      <find>var</find>
       <find>cut</find>
       <find>addressCtrl</find>
       <find>console.l</find>
       <find>getallAs</find>
+      <find>var</find>
+      <find>morgan</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -156,11 +171,12 @@
         <option value="$PROJECT_DIR$/config/redis.client.js" />
         <option value="$PROJECT_DIR$/.jshintrc" />
         <option value="$PROJECT_DIR$/app_api/routes/articles.route.js" />
-        <option value="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
         <option value="$PROJECT_DIR$/app_api/routes/routes.index.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app_api/models/article.redis.model.js" />
         <option value="$PROJECT_DIR$/test/api/article.redis.model.test.js" />
+        <option value="$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js" />
+        <option value="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
       </list>
     </option>
   </component>
@@ -268,6 +284,46 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="app_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="read-that" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="read-that" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helpers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="read-that" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="read-that" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app_api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="article" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -395,12 +451,12 @@
       <workItem from="1491761159605" duration="30000" />
       <workItem from="1491761200367" duration="151000" />
       <workItem from="1491761749268" duration="10000" />
-      <workItem from="1491762139088" duration="21717000" />
+      <workItem from="1491762139088" duration="22665000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21975000" />
+    <option name="totallyTimeSpent" value="22923000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2431" height="1499" extended-state="6" />
@@ -463,34 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc;n#ArticleCtrl#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app_api/routes/articles/articles.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#38#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="633">
-          <caret line="52" column="5" lean-forward="true" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_api/routes/routes.index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -519,11 +547,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="43" column="53" lean-forward="false" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
+        <state relative-caret-position="234">
+          <caret line="33" column="29" lean-forward="true" selection-start-line="33" selection-start-column="29" selection-end-line="33" selection-end-column="29" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
             <element signature="e#8183#8225#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/routes/articles/articles.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="8" column="39" lean-forward="true" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="15" column="27" lean-forward="true" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#38#0" expanded="false" />
           </folding>
         </state>
       </provider>
