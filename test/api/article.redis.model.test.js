@@ -36,7 +36,29 @@ describe('Redis Article Model', () => {
             });
         });
     });
-
+    describe('Article - Get One', () => {
+        beforeEach(() => {
+            client.flushdb();
+        });
+        it('get one article should return the article requested', done => {
+            const before = new Date().getTime()/1000;
+            model.postArticle('username', 'A title', 'http://www.google.com')
+            .then((id) => {
+                return model.getArticle(id);
+            })
+            .then((result) => {
+                result.title.should.equal('A title');
+                result.link.should.equal('http://www.google.com');
+                result.user.should.equal('username');
+                parseInt(result.votes, 10).should.equal(1);
+                parseFloat(result.now).should.be.above(before - .00001);
+                done();
+            })
+            .catch((err) => {
+                done(err);
+            });
+        });
+    });
     describe('Articles - Empty Get', () => {
         beforeEach(() => {
             client.flushdb();

@@ -157,6 +157,15 @@ class Article {
     /**
      *
      * @param articleID
+     * @returns Promise{*}
+     */
+    static getArticle(articleID) {
+        return client.hgetallAsync("article:"+articleID);
+    }
+
+    /**
+     *
+     * @param articleID
      * @param toAdd
      * @param toRemove
      * @returns {Promise.<*>}
