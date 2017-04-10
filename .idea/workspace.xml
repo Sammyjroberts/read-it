@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0d8acad-06e3-4096-b444-de2401d2fc8e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/api/article.redis.model.test.js" afterPath="$PROJECT_DIR$/test/api/article.redis.model.test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -50,10 +51,11 @@
       <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="220" column="43" lean-forward="false" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
+            <state relative-caret-position="807">
+              <caret line="326" column="15" lean-forward="false" selection-start-line="326" selection-start-column="15" selection-end-line="326" selection-end-column="15" />
               <folding>
                 <element signature="e#0#38#0" expanded="false" />
+                <element signature="e#7305#7347#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,7 +98,6 @@
       <find>self.</find>
       <find>console</find>
       <find>var</find>
-      <find>ch01</find>
       <find>voteFor</find>
       <find>articleVo</find>
       <find>setTod</find>
@@ -109,6 +110,7 @@
       <find>call</find>
       <find>cut</find>
       <find>console.lo</find>
+      <find>ch01</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -370,12 +372,12 @@
       <workItem from="1491761159605" duration="30000" />
       <workItem from="1491761200367" duration="151000" />
       <workItem from="1491761749268" duration="10000" />
-      <workItem from="1491762139088" duration="19362000" />
+      <workItem from="1491762139088" duration="20243000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19620000" />
+    <option name="totallyTimeSpent" value="20501000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2431" height="1499" extended-state="6" />
@@ -458,10 +460,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="220" column="43" lean-forward="false" selection-start-line="220" selection-start-column="43" selection-end-line="220" selection-end-column="43" />
+        <state relative-caret-position="807">
+          <caret line="326" column="15" lean-forward="false" selection-start-line="326" selection-start-column="15" selection-end-line="326" selection-end-column="15" />
           <folding>
             <element signature="e#0#38#0" expanded="false" />
+            <element signature="e#7305#7347#0" expanded="false" />
           </folding>
         </state>
       </provider>

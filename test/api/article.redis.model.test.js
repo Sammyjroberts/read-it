@@ -229,74 +229,104 @@ describe('Redis Article Model', () => {
             });
         });
     });
-    //
-    // describe('Groups', function() {
-    //
-    //     var ids;
-    //     var voteForArticles = function(done) {
-    //         ch01.articleVote(client, 'user2', 'article:' + ids[1], function() {
-    //             ch01.articleVote(client, 'user2', 'article:' + ids[2], function() {
-    //                 ch01.articleVote(client, 'user3', 'article:' + ids[2], function() {
-    //                     addGroups(done);
-    //                 });
-    //             });
-    //         });
-    //     };
-    //     var addGroups = function(done) {
-    //         ch01.addRemoveGroups(client, ids[0], ['g0', 'g1'], null, function() {
-    //             ch01.addRemoveGroups(client, ids[1], ['g1'], null, function() {
-    //                 ch01.addRemoveGroups(client, ids[2], ['g0', 'g1', 'g2'], null, function(err) {
-    //                     done(err);
-    //                 });
-    //             });
-    //         });
-    //     };
-    //     beforeEach(function(done) {
-    //         ids = [];
-    //         var cb = function(err, id) {
-    //             ids.push(id);
-    //             if (ids.length === 3) {
-    //                 voteForArticles(done);
-    //             }
-    //         };
-    //
-    //         client.flushdb(); // Empty db so we know what's there
-    //
-    //         ch01.postArticle(client, 'username', 'a0', 'link0', cb);
-    //         ch01.postArticle(client, 'username', 'a1', 'link1', cb);
-    //         ch01.postArticle(client, 'username', 'a2', 'link1', cb);
-    //     });
-    //
-    //     it('group g0 should contain article 2 and 0', function(done) {
-    //         ch01.getGroupArticles(client, 'g0', 1, null, function(err, articles) {
-    //             should.not.exist(err);
-    //             articles.length.should.equal(2);
-    //             articles[0].id.should.equal('article:' + ids[2]);
-    //             articles[1].id.should.equal('article:' + ids[0]);
-    //             done();
-    //         });
-    //     });
-    //
-    //     it('group g1 should contain all three articles', function(done) {
-    //         ch01.getGroupArticles(client, 'g1', 1, null, function(err, articles) {
-    //             should.not.exist(err);
-    //             articles.length.should.equal(3);
-    //             articles[0].id.should.equal('article:' + ids[2]);
-    //             articles[1].id.should.equal('article:' + ids[1]);
-    //             articles[2].id.should.equal('article:' + ids[0]);
-    //             done();
-    //         });
-    //     });
-    //
-    //     it('group g2 should only contain article 1', function(done) {
-    //         ch01.getGroupArticles(client, 'g2', 1, null, function(err, articles) {
-    //             should.not.exist(err);
-    //             articles.length.should.equal(1);
-    //             articles[0].id.should.equal('article:' + ids[2]);
-    //             done();
-    //         });
-    //     });
-    //
-    // });
+
+    describe('Groups', function() {
+
+        let ids;
+        const addGroups = function(done) {
+            model.addRemoveGroups(ids[0], ['g0', 'g1'], null)
+            .then(() => {
+                return model.addRemoveGroups(ids[1], ['g1'], null);
+            })
+            .then(() => {
+                return model.addRemoveGroups(ids[2], ['g0', 'g1', 'g2'], null);
+            })
+            .then(() => {
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        };
+        const voteForArticles = function(done) {
+            model.articleVote('user2', 'article:' + ids[1])
+            .then(() => {
+                return model.articleVote('user2', 'article:' + ids[2]);
+            })
+            .then(() => {
+                return model.articleVote('user3', 'article:' + ids[2]);
+            })
+            .then(() => {
+                addGroups(done);
+            })
+            .catch(err => {
+                done(err);
+            });
+        };
+        beforeEach(function(done) {
+            ids = [];
+            const cb = function(id) {
+                ids.push(id);
+                if (ids.length === 3) {
+                    voteForArticles(done);
+                }
+            };
+
+            client.flushdb(); // Empty db so we know what's there
+            const promArr = [];
+            promArr.push(model.postArticle('username', 'a0', 'link0'));
+            promArr.push(model.postArticle('username', 'a1', 'link1'));
+            promArr.push(model.postArticle('username', 'a2', 'link1'));
+            Promise.all(promArr)
+            .then(response => {
+                response.forEach((id) => {
+                    cb(id);
+                });
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
+
+        it('group g0 should contain article 2 and 0', function(done) {
+            model.getGroupArticles('g0', 1, null)
+            .then((articles) => {
+                articles.length.should.equal(2);
+                articles[0].id.should.equal('article:' + ids[2]);
+                articles[1].id.should.equal('article:' + ids[0]);
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
+
+        it('group g1 should contain all three articles', function(done) {
+            model.getGroupArticles('g1', 1, null)
+            .then(articles => {
+                articles.length.should.equal(3);
+                articles[0].id.should.equal('article:' + ids[2]);
+                articles[1].id.should.equal('article:' + ids[1]);
+                articles[2].id.should.equal('article:' + ids[0]);
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
+
+        it('group g2 should only contain article 1', function(done) {
+            model.getGroupArticles('g2', 1, null)
+            .then(articles => {
+                articles.length.should.equal(1);
+                articles[0].id.should.equal('article:' + ids[2]);
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
+
+    });
 
 });
