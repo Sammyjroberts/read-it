@@ -159,7 +159,13 @@ class Article {
 
     }
 
-
+    /**
+     * @param articleID
+     * WARNING - this can create new fields that do not normally exist this is important to maintain flexability
+     * But you need to be careful. All Error Checking and validation must be inside of the controller.
+     * @param hash - this is an object containing hashes to add to the article
+     * @returns {Promise}
+     */
     static updateArticle(articleID, hash) {
         return new Promise((resolve, reject) => {
             console.log("calling hmset")
@@ -175,7 +181,7 @@ class Article {
     /**
      *
      * @param articleID
-     * @returns Promise{*}
+     * @returns Promise{*} - Response will be a object containing all hashes for id.
      */
     static getArticle(articleID) {
         return client.hgetallAsync("article:"+articleID);

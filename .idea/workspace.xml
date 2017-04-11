@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d0d8acad-06e3-4096-b444-de2401d2fc8e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/helpers/ctrl.helpers.test.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" afterPath="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js" afterPath="$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app_api/models/article.redis.model.js" afterPath="$PROJECT_DIR$/app_api/models/article.redis.model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/api/article.redis.model.test.js" afterPath="$PROJECT_DIR$/test/api/article.redis.model.test.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -70,19 +64,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.redis.model.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="article.redis.model.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app_api/models/article.redis.model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="164" column="38" lean-forward="false" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
+            <state relative-caret-position="382">
+              <caret line="183" column="84" lean-forward="false" selection-start-line="183" selection-start-column="84" selection-end-line="183" selection-end-column="84" />
               <folding>
-                <marker date="1491942480648" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
+                <marker date="1491942894515" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="article.redis.model.test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/api/article.redis.model.test.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="256">
@@ -153,8 +147,8 @@
         <option value="$PROJECT_DIR$/app_api/controllers/article/article.ctrl.js" />
         <option value="$PROJECT_DIR$/test/helpers/ctrl.helpers.test.js" />
         <option value="$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js" />
-        <option value="$PROJECT_DIR$/app_api/models/article.redis.model.js" />
         <option value="$PROJECT_DIR$/test/api/article.redis.model.test.js" />
+        <option value="$PROJECT_DIR$/app_api/models/article.redis.model.js" />
       </list>
     </option>
   </component>
@@ -526,7 +520,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38413000" />
+    <option name="totallyTimeSpent" value="38600000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="2431" height="1499" extended-state="6" />
@@ -621,7 +615,7 @@
         <state relative-caret-position="133">
           <caret line="154" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
-            <marker date="1491942480648" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
+            <marker date="1491942894515" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
           </folding>
         </state>
       </provider>
@@ -688,7 +682,7 @@
         <state relative-caret-position="975">
           <caret line="154" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
           <folding>
-            <marker date="1491942480648" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
+            <marker date="1491942894515" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
           </folding>
         </state>
       </provider>
@@ -851,16 +845,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app_api/models/article.redis.model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="796">
-          <caret line="164" column="38" lean-forward="false" selection-start-line="164" selection-start-column="38" selection-end-line="164" selection-end-column="38" />
-          <folding>
-            <marker date="1491942480648" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app_api/helpers/ctrl.helpers.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -876,6 +860,16 @@
           <folding>
             <element signature="e#0#38#0" expanded="false" />
             <element signature="e#11013#11055#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app_api/models/article.redis.model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="183" column="84" lean-forward="false" selection-start-line="183" selection-start-column="84" selection-end-line="183" selection-end-column="84" />
+          <folding>
+            <marker date="1491942894515" expanded="true" signature="1239:1362" ph="{&quot;title&quot;: title...}" />
           </folding>
         </state>
       </provider>
