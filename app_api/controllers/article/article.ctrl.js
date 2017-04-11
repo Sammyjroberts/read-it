@@ -19,6 +19,18 @@ class ArticleCtrl {
         }
     }
     static createOne(req, res) {
+        const user = req.body.user || "";
+        const title = req.body.title || "";
+        const type = req.body.type || "";
+        const text = req.body.text || "";
+        const link = req.body.link || "";
+        model.postArticle(user, title, type, text,link)
+        .then( resp => {
+            helpers.sendJsonResponse(res, 200, {id: resp});
+        })
+        .catch(err => {
+            helpers.sendJsonError(res, 422, err.message);
+        });
 
     }
     static getAll(req, res) {

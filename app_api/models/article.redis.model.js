@@ -28,9 +28,11 @@ class Article {
      * @param user - string of users username TODO refactor
      * @param title
      * @param link
+     * @param type
+     * @param text
      * @returns {Promise}
      */
-    static postArticle(user, title, link) {
+    static postArticle(user, title, type, text, link) {
         const self = this;
         const now = (today()/1000);
         const id = uuidV1();
@@ -41,6 +43,8 @@ class Article {
                 const articleData = {
                     title : title,
                     link: link,
+                    type : type,
+                    text: text,
                     user: user,
                     now: ''+now,
                     votes: '1'
