@@ -24,12 +24,78 @@ describe('Redis Article Model', () => {
                 return client.hgetallAsync('article:' + id);
             })
             .then((result) => {
-                console.log(result);
                 result.title.should.equal('A title');
                 result.link.should.equal('http://www.google.com');
                 result.user.should.equal('username');
+                result.type.should.equal("link");
+                result.text.should.equal("");
                 parseInt(result.votes, 10).should.equal(1);
-                parseFloat(result.now).should.be.above(before - .00001);
+                parseFloat(result.dateCreated).should.be.above(before - 0.00001);
+                done();
+            })
+            .catch((err) => {
+                done(err);
+            });
+        });
+    });
+    describe('Articles - Update Article - Update all', function() {
+        it('should be possible to post an article update it then read it', function(done) {
+            let respID;
+            const before = new Date().getTime()/1000;
+            model.postArticle('username', 'A title', "link", "", 'http://www.google.com')
+            .then((id) => {
+                respID = id;
+                const newData = {
+                    user:"newuser",
+                    title: "newtitle",
+                    type: "text",
+                    link :"new.com",
+                    text: "some text",
+                };
+                return model.updateArticle(id, newData);
+            })
+            .then(() => {
+                return client.hgetallAsync("article:"+respID);
+            })
+            .then(result => {
+                result.title.should.equal('newtitle');
+                result.link.should.equal('new.com');
+                result.user.should.equal('newuser');
+                result.type.should.equal("text");
+                result.text.should.equal("some text");
+                parseInt(result.votes, 10).should.equal(1);
+                parseFloat(result.dateCreated).should.be.above(before - 0.00001);
+                done();
+            })
+            .catch((err) => {
+                done(err);
+            });
+        });
+    });
+    describe('Articles - Update Article - Update one', function() {
+        it('should be possible to post an article update it then read it', function(done) {
+            let respID;
+            const before = new Date().getTime()/1000;
+            model.postArticle('username', 'A title', "link", "", 'http://www.google.com')
+            .then((id) => {
+                respID = id;
+                const newData = {
+                    img: "https://img.com"
+                };
+                return model.updateArticle(id, newData);
+            })
+            .then(() => {
+                return client.hgetallAsync("article:"+respID);
+            })
+            .then(result => {
+                result.title.should.equal('A title');
+                result.link.should.equal('http://www.google.com');
+                result.user.should.equal('username');
+                result.type.should.equal("link");
+                result.text.should.equal("");
+                result.img.should.equal("https://img.com");
+                parseInt(result.votes, 10).should.equal(1);
+                parseFloat(result.dateCreated).should.be.above(before - 0.00001);
                 done();
             })
             .catch((err) => {
@@ -52,7 +118,7 @@ describe('Redis Article Model', () => {
                 result.link.should.equal('http://www.google.com');
                 result.user.should.equal('username');
                 parseInt(result.votes, 10).should.equal(1);
-                parseFloat(result.now).should.be.above(before - .00001);
+                parseFloat(result.dateCreated).should.be.above(before - .00001);
                 done();
             })
             .catch((err) => {
@@ -104,21 +170,21 @@ describe('Redis Article Model', () => {
 
             client.flushdb(); // Empty db so we know what's there
 
-            model.postArticle('username', 'a0', 'link0')
+            model.postArticle('username', 'a0', 'link0', "", "")
             .then((id) => {
                 cb(null,id);
             })
             .catch((err) => {
                 done(err);
             });
-            model.postArticle('username', 'a1', 'link1')
+            model.postArticle('username', 'a1', 'link1', "", "")
             .then((id) => {
                 cb(null,id);
             })
             .catch((err) => {
                 done(err);
             });
-            model.postArticle('username', 'a2', 'link1')
+            model.postArticle('username', 'a2', 'link1', "", "")
             .then((id) => {
                 cb(null,id);
             })
@@ -161,7 +227,7 @@ describe('Redis Article Model', () => {
     describe('Articles - Vote after cutoff', function() {
         let articleID;
         beforeEach(function(done) {
-            model.postArticle('username', 'a0', 'link0')
+            model.postArticle('username', 'a0', 'link0', "", "")
             .then((id) => {
                 articleID = id;
                 // Set today to be one week and one millisecond later
@@ -297,9 +363,9 @@ describe('Redis Article Model', () => {
 
             client.flushdb(); // Empty db so we know what's there
             const promArr = [];
-            promArr.push(model.postArticle('username', 'a0', 'link0'));
-            promArr.push(model.postArticle('username', 'a1', 'link1'));
-            promArr.push(model.postArticle('username', 'a2', 'link1'));
+            promArr.push(model.postArticle('username', 'a0', 'link0', "", ""));
+            promArr.push(model.postArticle('username', 'a1', 'link1', "", ""));
+            promArr.push(model.postArticle('username', 'a2', 'link1', "", ""));
             Promise.all(promArr)
             .then(response => {
                 response.forEach((id) => {

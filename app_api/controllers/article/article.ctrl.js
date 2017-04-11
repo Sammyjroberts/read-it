@@ -4,6 +4,11 @@
 const model = require("../../models/article.redis.model");
 const helpers = require("../../helpers/ctrl.helpers");
 class ArticleCtrl {
+    /**
+     *
+     * @param req - @type {request} Express Request
+     * @param res - @type {response} Express Response
+     */
     static getOne(req, res) {
         console.log(req.params);
         if(!req.params || !req.params.id) {

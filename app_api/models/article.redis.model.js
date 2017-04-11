@@ -46,10 +46,9 @@ class Article {
                     type : type,
                     text: text,
                     user: user,
-                    now: ''+now,
+                    dateCreated: ''+now,
                     votes: '1'
                 };
-                console.log(articleData);
                 return client.hmsetAsync(article, articleData);
             })
             .then(() => {
@@ -160,6 +159,19 @@ class Article {
 
     }
 
+
+    static updateArticle(articleID, hash) {
+        return new Promise((resolve, reject) => {
+            console.log("calling hmset")
+            client.hmsetAsync("article:"+articleID, hash)
+            .then(resp => {
+                resolve(resp);
+            })
+            .catch(err => {
+                reject(err);
+            });
+        });
+    }
     /**
      *
      * @param articleID
