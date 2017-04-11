@@ -5,7 +5,8 @@ const model = require("../../models/article.redis.model");
 const helpers = require("../../helpers/ctrl.helpers");
 class ArticleCtrl {
     static getOne(req, res) {
-        if(!req.params || req.params.id) {
+        console.log(req.params);
+        if(!req.params || !req.params.id) {
             helpers.sendJsonError(res, 404, "no uri found, or potentially missing id in request");
         }
         else {

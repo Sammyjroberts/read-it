@@ -1,5 +1,5 @@
 const client = require("../../config/redis.client");
-const uuidV1 = require('uuid/v1');
+const uuid = require("../helpers/uuid.helpers");
 
 /**
  *  Article Model
@@ -35,7 +35,7 @@ class Article {
     static postArticle(user, title, type, text, link) {
         const self = this;
         const now = (today()/1000);
-        const id = uuidV1();
+        const id = uuid.generateUUID();
         const article= "article:"+id;
         return new Promise((resolve, reject) => {
             client.saddAsync("voted:"+id, user)
@@ -49,13 +49,14 @@ class Article {
                     now: ''+now,
                     votes: '1'
                 };
+                console.log(articleData);
                 return client.hmsetAsync(article, articleData);
             })
             .then(() => {
                 return client.zaddAsync('score:', now + self.VOTE_SCORE, article);
             })
             .then(() => {
-                return client.zaddAsync('time:', now, article)
+                return client.zaddAsync('time:', now, article);
             })
             .then(()=> {
                 resolve(id);

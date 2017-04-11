@@ -19,11 +19,12 @@ describe('Redis Article Model', () => {
     describe('Articles - Post Article', function() {
         it('should be possible to post an article and read it back given the id returned', function(done) {
             const before = new Date().getTime()/1000;
-            model.postArticle('username', 'A title', 'http://www.google.com')
+            model.postArticle('username', 'A title', "link", "", 'http://www.google.com')
             .then((id) => {
                 return client.hgetallAsync('article:' + id);
             })
             .then((result) => {
+                console.log(result);
                 result.title.should.equal('A title');
                 result.link.should.equal('http://www.google.com');
                 result.user.should.equal('username');
@@ -42,7 +43,7 @@ describe('Redis Article Model', () => {
         });
         it('get one article should return the article requested', done => {
             const before = new Date().getTime()/1000;
-            model.postArticle('username', 'A title', 'http://www.google.com')
+            model.postArticle('username', 'A title', "link", "", 'http://www.google.com')
             .then((id) => {
                 return model.getArticle(id);
             })
