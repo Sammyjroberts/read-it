@@ -25,11 +25,11 @@ class Article {
 
     /**
      *
-     * @param user - string of users username TODO refactor
-     * @param title
-     * @param link
-     * @param type
-     * @param text
+     * @param user  {string}- string of users username TODO refactor
+     * @param title {string}
+     * @param link {string}
+     * @param type {ArticleTypeEnum}
+     * @param text {string}
      * @returns {Promise}
      */
     static postArticle(user, title, type, text, link) {
@@ -68,7 +68,7 @@ class Article {
 
     /**
      *
-     * @param user - string TODO refactor
+     * @param user {string} TODO refactor to use id i think
      * @param article
      * @returns {Promise}
      */
@@ -118,7 +118,7 @@ class Article {
 
     /**
      *
-     * @param page - current page
+     * @param page {int} - current page
      * @param order - method by which we order, defaults to score.
      * @returns {Promise}
      */
@@ -160,10 +160,10 @@ class Article {
     }
 
     /**
-     * @param articleID
+     * @param articleID {compactedUUID}
      * WARNING - this can create new fields that do not normally exist this is important to maintain flexability
      * But you need to be careful. All Error Checking and validation must be inside of the controller.
-     * @param hash - this is an object containing hashes to add to the article
+     * @param {Object} - this is an object containing hashes to add to the article
      * @returns {Promise}
      */
     static updateArticle(articleID, hash) {
@@ -180,7 +180,7 @@ class Article {
     }
     /**
      *
-     * @param articleID
+     * @param articleID {compactedUUID}
      * @returns Promise{*} - Response will be a object containing all hashes for id.
      */
     static getArticle(articleID) {
@@ -189,10 +189,10 @@ class Article {
 
     /**
      *
-     * @param articleID
-     * @param toAdd
-     * @param toRemove
-     * @returns {Promise.<*>}
+     * @param articleID {compactedUUID}
+     * @param toAdd {Array<string>}
+     * @param toRemove {Array<string>}
+     * @returns {Promise}
      */
     static addRemoveGroups(articleID, toAdd, toRemove) {
         toAdd = toAdd || [];
