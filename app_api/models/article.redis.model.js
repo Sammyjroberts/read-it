@@ -6,6 +6,7 @@ const uuidV1 = require('uuid/v1');
  *  TODO make this handle persistance to mysql
  *  TODO concider the downsides of uuid as our sql id
  */
+
 //this is how we change testing date outside of the module
 let today = todayOrig = function() {
     return new Date();
