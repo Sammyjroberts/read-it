@@ -13,7 +13,17 @@ describe('CTRL Helpers', () => {
             helper.getPageImg("https://www.google.com///")
             .then(resp => {
                 should.exist(resp);
-                console.log(resp);
+                done();
+            })
+            .catch(err => {
+                done(err);
+            });
+        });
+
+        it('should be possible to get an image where the site uses a CDN', function(done) {
+            helper.getPageImg("http://imgur.com/gallery/epqDj")
+            .then(resp => {
+                should.exist(resp);
                 done();
             })
             .catch(err => {

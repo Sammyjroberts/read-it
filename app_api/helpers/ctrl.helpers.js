@@ -1,5 +1,7 @@
 const axios = require("axios");
 const cheerio = require('cheerio');
+const nodeURL = require("url");
+
 
 class ControllerHelpers {
     static generateJsonError(message, statusCode){
@@ -25,6 +27,13 @@ class ControllerHelpers {
     static sendJsonError(res, statusCode, message) {
         module.exports.sendJsonResponse(res, statusCode, this.generateJsonError(message, statusCode));
     }
+
+    /**
+     *  TODO MAKE THIS HANDLE ANY URL relative or absolute, and make sure to use the hostname as the base
+     *  I think i made it work
+     * @param url
+     * @returns {Promise}
+     */
     static getPageImg(url) {
         return new Promise((resolve, reject) => {
             //get our html
@@ -35,9 +44,8 @@ class ControllerHelpers {
                 //load into a $
                 const $ = cheerio.load(html);
                 //find ourself a img
-                const src = url + "/" + $("body").find("img")[0].attribs.src;
-                //make sure there are no extra slashes
-                resolve(src.replace(/([^:]\/)\/+/g, "$1"));
+                const retURL = nodeURL.resolve(url,$("body").find("img")[0].attribs.src);
+                resolve(retURL);
             })
             .catch(err => {
                reject(err);

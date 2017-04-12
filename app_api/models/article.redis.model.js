@@ -262,4 +262,5 @@ class Article {
         today = f || todayOrig;
     }
 }
+
 module.exports = Article;

@@ -9,5 +9,5 @@
 * The helper also compacts the uuid by removing unnecessary dashes.
 * All uuid to be placed into redis WILL be compacted as described above.
 #### How to store UUID into SQL
-* All UUIDs will be stored in a ?binary(16)?, in its hex form.
-* example given compacted hex "id" `var sqlFriendlyID = new Buffer(ic, 'hex')`
+* All UUIDs will be stored in a binary(16), in its unhexed form.
+* example given compacted hex "id" `var sqlFriendlyID = new Buffer(ic, 'hex')` or INSERT INTO sometable (uuid) values (unhex("11d8eebc58e0a7d796690800200c9a66"))
