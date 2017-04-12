@@ -30,9 +30,18 @@ class ArticleCtrl {
         const type = req.body.type || "";
         const text = req.body.text || "";
         const link = req.body.link || "";
+        let ID;
         model.postArticle(user, title, type, text,link)
         .then( resp => {
-            helpers.sendJsonResponse(res, 200, {id: resp});
+            ID = resp;
+            helpers.sendJsonResponse(res, 200, {id: ID});
+            return helpers.getPageImg(link);
+        })
+        .then(imgSrc => {
+            return model.updateArticle(ID, {img: imgSrc});
+        })
+        .then(resp => {
+            console.log(resp);
         })
         .catch(err => {
             helpers.sendJsonError(res, 422, err.message);

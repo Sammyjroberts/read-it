@@ -161,14 +161,13 @@ class Article {
 
     /**
      * @param articleID {compactedUUID}
-     * WARNING - this can create new fields that do not normally exist this is important to maintain flexability
+     * WARNING - this can create new fields that do not normally exist this is important to maintain flexibility
      * But you need to be careful. All Error Checking and validation must be inside of the controller.
      * @param {Object} - this is an object containing hashes to add to the article
      * @returns {Promise}
      */
     static updateArticle(articleID, hash) {
         return new Promise((resolve, reject) => {
-            console.log("calling hmset")
             client.hmsetAsync("article:"+articleID, hash)
             .then(resp => {
                 resolve(resp);
