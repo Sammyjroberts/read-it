@@ -1,8 +1,12 @@
 /**
  * Created by sammy on 4/11/17.
  */
+const mocha = require('mocha');
+const describe = mocha.describe;
+const it = mocha.it;
 const should = require("should");
 const helper = require("../../app_api/helpers/ctrl.helpers");
+
 describe('CTRL Helpers', () => {
 
     describe('Scraping - Get Image from Site', function() {
