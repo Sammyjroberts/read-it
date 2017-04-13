@@ -24,36 +24,58 @@ class ArticleCtrl {
             });
         }
     }
+
+    /**
+     *
+     * @param req {express.Request}
+     * @param res {express.Response}
+     */
     static createOne(req, res) {
-        const user = req.body.user || "";
-        const title = req.body.title || "";
-        const type = req.body.type || "";
-        const text = req.body.text || "";
-        const link = req.body.link || "";
+        const user  = req.body.user;
+        const title = req.body.title;
+        const type  = req.body.type   || "";
+        const text  = req.body.text   || "";
+        const link  = req.body.link   || "";
         let ID;
-        model.postArticle(user, title, type, text,link)
-        .then( resp => {
-            ID = resp;
-            helpers.sendJsonResponse(res, 200, {id: ID});
-            return helpers.getPageImg(link);
-        })
-        .then(imgSrc => {
-            return model.updateArticle(ID, {img: imgSrc});
-        })
-        .then(resp => {
-            console.log(resp);
-        })
-        .catch(err => {
-            helpers.sendJsonError(res, 422, err.message);
-        });
+        if(user && title) {
+            model.postArticle(user, title, type, text,link)
+            .then( resp => {
+                ID = resp;
+                helpers.sendJsonResponse(res, 200, {id: ID});
+                return helpers.getPageImg(link);
+            })
+            .then(imgSrc => {
+                return model.updateArticle(ID, {img: imgSrc});
+            })
+            .catch(err => {
+                helpers.sendJsonError(res, 422, err.message);
+            });
+        }
+        else {
+            helpers.sendJsonError(res, 422, "username or title not set");
+        }
+    }
+    /**
+     *
+     * @param req {express.Request}
+     * @param res {express.Response}
+     */
+    static getPage(req, res) {
 
     }
-    static getAll(req, res) {
-
-    }
+    /**
+     *
+     * @param req {express.Request}
+     * @param res {express.Response}
+     */
     static deleteOne(req, res) {
 
     }
+    /**
+     *
+     * @param req {express.Request}
+     * @param res {express.Response}
+     */
     static updateOne(req, res) {
 
     }

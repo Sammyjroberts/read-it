@@ -10,8 +10,8 @@ bluebird.promisifyAll(redis.Multi.prototype);
  * 3 is our default db
  */
 const client = redis.createClient();
-    client.select(3, () => {
+client.select(3, () => {
 
-    });
+});
 
 module.exports = client;

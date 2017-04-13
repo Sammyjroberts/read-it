@@ -1,6 +1,9 @@
 /**
  * Created by sammy on 4/9/17.
  */
+const mocha = require('mocha');
+const describe = mocha.describe;
+const it = mocha.it;
 
 describe('Redis Article Model', () => {
     const client = require("../../config/redis.client.js");

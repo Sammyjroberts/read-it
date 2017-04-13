@@ -4,6 +4,10 @@
 const uuidV1 = require('uuid/v1');
 const uuid = require("../../app_api/helpers/uuid.helpers");
 const should = require("should");
+const mocha = require('mocha');
+const describe = mocha.describe;
+const it = mocha.it;
+
 describe('UUID Helpers', () => {
 
     describe('UUID - Generate UUID', function() {

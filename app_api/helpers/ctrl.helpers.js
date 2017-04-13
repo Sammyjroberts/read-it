@@ -45,7 +45,6 @@ class ControllerHelpers {
                 const $ = cheerio.load(html);
                 //find ourself a img
                 const retURL = nodeURL.resolve(url,$("body").find("img")[0].attribs.src);
-                console.log(retURL);
                 resolve(retURL);
             })
             .catch(err => {

@@ -24,7 +24,6 @@ class Article {
     }
 
     /**
-     *
      * @param user  {string}- string of users username TODO refactor
      * @param title {string}
      * @param link {string}
