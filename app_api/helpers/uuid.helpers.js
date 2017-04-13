@@ -6,8 +6,7 @@ const uuidV1 = require('uuid/v1');
 class SequentialCompactUUID {
     /**
      * This function will generate a compacts, semi-sequential UUID.
-     * @returns {string}
-     * @type compactedUUID
+     * @returns {compactedUUID}
      */
     static generateUUID() {
         const id = uuidV1();
@@ -17,8 +16,8 @@ class SequentialCompactUUID {
     /**
      * This function will take a expanded uuid and turn it into a compact uuic
      * @private - only exposed for testing purposes
-     * @param uuid
-     * @returns compactedUUID
+     * @param {expanedUUID}
+     * @returns {compactedUUID}
      */
     static _compactifyUUID(uuid) {
         const parts = uuid.split('-');
@@ -27,8 +26,8 @@ class SequentialCompactUUID {
 
     /**
      * This function will expand a uuid to a more "human readable" and standard form.
-     * @param compactID - compactedUUID
-     * @returns expandedUUID
+     * @param compactID {compactedUUID}
+     * @returns {expandedUUID}
      */
     static decompactifyUUID(compactID) {
         return compactID.substring(8,16) + "-" +compactID.substring(4,8) + "-" +

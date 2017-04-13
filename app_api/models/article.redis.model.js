@@ -1,5 +1,5 @@
 const client = require("../../config/redis.client");
-const uuidV1 = require('uuid/v1');
+const uuid = require("../helpers/uuid.helpers");
 
 /**
  *  Article Model
@@ -25,17 +25,17 @@ class Article {
 
     /**
      *
-     * @param user - string of users username TODO refactor
-     * @param title
-     * @param link
-     * @param type
-     * @param text
+     * @param user  {string}- string of users username TODO refactor
+     * @param title {string}
+     * @param link {string}
+     * @param type {ArticleTypeEnum}
+     * @param text {string}
      * @returns {Promise}
      */
     static postArticle(user, title, type, text, link) {
         const self = this;
         const now = (today()/1000);
-        const id = uuidV1();
+        const id = uuid.generateUUID();
         const article= "article:"+id;
         return new Promise((resolve, reject) => {
             client.saddAsync("voted:"+id, user)
@@ -46,7 +46,7 @@ class Article {
                     type : type,
                     text: text,
                     user: user,
-                    now: ''+now,
+                    dateCreated: ''+now,
                     votes: '1'
                 };
                 return client.hmsetAsync(article, articleData);
@@ -55,7 +55,7 @@ class Article {
                 return client.zaddAsync('score:', now + self.VOTE_SCORE, article);
             })
             .then(() => {
-                return client.zaddAsync('time:', now, article)
+                return client.zaddAsync('time:', now, article);
             })
             .then(()=> {
                 resolve(id);
@@ -68,7 +68,7 @@ class Article {
 
     /**
      *
-     * @param user - string TODO refactor
+     * @param user {string} TODO refactor to use id i think
      * @param article
      * @returns {Promise}
      */
@@ -118,7 +118,7 @@ class Article {
 
     /**
      *
-     * @param page - current page
+     * @param page {int} - current page
      * @param order - method by which we order, defaults to score.
      * @returns {Promise}
      */
@@ -160,9 +160,27 @@ class Article {
     }
 
     /**
+     * @param articleID {compactedUUID}
+     * WARNING - this can create new fields that do not normally exist this is important to maintain flexibility
+     * But you need to be careful. All Error Checking and validation must be inside of the controller.
+     * @param {Object} - this is an object containing hashes to add to the article
+     * @returns {Promise}
+     */
+    static updateArticle(articleID, hash) {
+        return new Promise((resolve, reject) => {
+            client.hmsetAsync("article:"+articleID, hash)
+            .then(resp => {
+                resolve(resp);
+            })
+            .catch(err => {
+                reject(err);
+            });
+        });
+    }
+    /**
      *
-     * @param articleID
-     * @returns Promise{*}
+     * @param articleID {compactedUUID}
+     * @returns Promise{*} - Response will be a object containing all hashes for id.
      */
     static getArticle(articleID) {
         return client.hgetallAsync("article:"+articleID);
@@ -170,10 +188,10 @@ class Article {
 
     /**
      *
-     * @param articleID
-     * @param toAdd
-     * @param toRemove
-     * @returns {Promise.<*>}
+     * @param articleID {compactedUUID}
+     * @param toAdd {Array<string>}
+     * @param toRemove {Array<string>}
+     * @returns {Promise}
      */
     static addRemoveGroups(articleID, toAdd, toRemove) {
         toAdd = toAdd || [];
@@ -243,4 +261,5 @@ class Article {
         today = f || todayOrig;
     }
 }
+
 module.exports = Article;
