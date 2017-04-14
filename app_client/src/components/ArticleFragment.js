@@ -13,3 +13,5 @@ class ArticleFragment extends React.Component {
     );
   }
 }
+
+export default ArticleFragment;
