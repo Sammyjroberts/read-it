@@ -7,8 +7,12 @@ import React from 'react'
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        Hello
+      <div className = "col-md-10 col-md-offset-1">
+        <div className="panel panel-default">
+          <div className="panel-body">
+            Panel content
+          </div>
+        </div>
       </div>
     );
   }

@@ -11,7 +11,7 @@ import Header from './partials/Header'
 class Layout extends React.Component {
   render() {
     return (
-      <div>
+      <div className ="container-fluid">
         <Header/>
         <div>
           {this.props.children}
