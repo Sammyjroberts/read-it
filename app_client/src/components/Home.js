@@ -11,6 +11,7 @@ class Home extends React.Component {
         <div className="panel panel-default">
           <div className="panel-body">
             Panel content
+            too tired for a real commit
           </div>
         </div>
       </div>
