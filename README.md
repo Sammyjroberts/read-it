@@ -1,3 +1,5 @@
+# Read-it aka Reddit Clone
+This is a tech test for using redis as a first layer data store that persists to a sql database. That way data that is constantly accessed, is able to be gotten quickly from Redis, but, old, not often accessed data gets pushed down to the myqsl layer. The technology here will be used in private projects. Also I wanted to try optimizing UUID's for use in mysql, as I have heard bad things about it, but want to try for myself.
 # Pseudotypes - Terms for "types" we use.
 #### UUID
 * compactedUUID - this is a UUID that is reordered to be semi sequential and has the -'s removed
